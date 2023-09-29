@@ -1,6 +1,6 @@
 # Terraform Beginner Bootcamp 2023
 
-## Semantic Versioning
+## Semantic Versioning!!!
 
 We are going to follow Semantic Versioning for tagging in this project.
 
