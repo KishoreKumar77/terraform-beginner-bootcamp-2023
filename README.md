@@ -113,3 +113,46 @@ chmod 744 ./bin/install_terraform_cli
 You need to be careful when using `init` as this will not run the files if the existing workspace is restarted
 
 [Gitpod Tasks](https://www.gitpod.io/docs/configure/workspaces/tasks)
+
+
+### Working with Environment Variables (env var)
+
+#### env command
+
+`env` lists all the environment variables.
+
+Using `env | grep AWS_` will filter the output
+
+#### Setting and Unsetting env vars
+
+- In terminal following command sets the env var `export COURSE='tfbootcamp'`
+
+- In terminal following command unsets the env var `unset COURSE`
+
+- We can set the env var temporarliy while running a command
+
+    ```sh
+    COURSE='tfbootcamp' ./bin/print_text
+    ```
+- Within the bash script you can use env var with using the `export` command. e.g
+    ```sh
+    #!/bin/usr/env bash
+
+    COURSE='tfbootcamp'
+
+    echo $COURSE
+    ```
+
+#### Scope of env vars
+
+The scope of env var is only on the current terminal, any new terminal will not have the env var.
+
+If you want the env var to persistent across all terminal, you have to use bash profile to set it.
+
+#### Persisting env vars in Gitpod
+
+- env vars can be persisted into gitpod by storing them into Gitpod Secrets Storage.
+```
+gp env COURSE='tfbootcamp'
+```
+- env vars can also be set in `gitpod.yml` file, however it should not contain any sensitive env vars
