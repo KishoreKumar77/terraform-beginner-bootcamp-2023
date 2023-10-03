@@ -171,3 +171,14 @@ We can check if the AWS Credentials is configured, by running the below AWS CLI 
 ```sh
 aws sts get-caller-identity
 ```
+If the above command is successful, you will recieve output like below,
+
+```json
+{
+    "UserId": "AIDA2QDEBV2JKHFN89547",
+    "Account": "887766554433",
+    "Arn": "arn:aws:iam::887766554433:user/tfbootcamp"
+}
+```
+
+We need to genereate IAM user credentials from AWS console.
