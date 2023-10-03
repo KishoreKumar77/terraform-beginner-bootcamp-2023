@@ -156,3 +156,18 @@ If you want the env var to persistent across all terminal, you have to use bash 
 gp env COURSE='tfbootcamp'
 ```
 - env vars can also be set in `gitpod.yml` file, however it should not contain any sensitive env vars
+
+
+### AWS CLI Installation
+
+AWS CLI is installed for the project via bash script [`./bin/install_aws_cli`](./bin/install_aws_cli)
+
+[Install or update the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
+[AWS CLI env vars](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
+
+We can check if the AWS Credentials is configured, by running the below AWS CLI command,
+
+```sh
+aws sts get-caller-identity
+```
