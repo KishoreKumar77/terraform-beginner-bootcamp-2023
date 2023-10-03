@@ -182,3 +182,105 @@ If the above command is successful, you will recieve output like below,
 ```
 
 We need to genereate IAM user credentials from AWS console.
+
+## Terraform Basics
+
+### Terraform Registry
+
+Terraform Registry contains/hosts Providers and Modules and use following link to reach their website [Terraform Registry](https://registry.terraform.io/)
+
+- **Providers** are basically a wrapper to interact with the APIs exposed by the vendor. e.g. AWS API to handle S3 bucket operations.
+[Terraform Provider - Random Provider](https://registry.terraform.io/providers/hashicorp/random/latest
+)
+
+- **Modules** are collection of Terraform configurations which are portable, modular and shareable.
+[Terraform Module - s3 bucket](https://registry.terraform.io/modules/terraform-aws-modules/s3-bucket/aws/latest)
+
+### Terraform Console
+
+We can list all the Terraform Commands by issuing following command `terraform`
+
+```
+$ terraform
+Usage: terraform [global options] <subcommand> [args]
+
+The available commands for execution are listed below.
+The primary workflow commands are given first, followed by
+less common or more advanced commands.
+
+Main commands:
+  init          Prepare your working directory for other commands
+  validate      Check whether the configuration is valid
+  plan          Show changes required by the current configuration
+  apply         Create or update infrastructure
+  destroy       Destroy previously-created infrastructure
+
+All other commands:
+  console       Try Terraform expressions at an interactive command prompt
+  fmt           Reformat your configuration in the standard style
+  force-unlock  Release a stuck lock on the current workspace
+  get           Install or upgrade remote Terraform modules
+  graph         Generate a Graphviz graph of the steps in an operation
+  import        Associate existing infrastructure with a Terraform resource
+  login         Obtain and save credentials for a remote host
+  logout        Remove locally-stored credentials for a remote host
+  metadata      Metadata related commands
+  output        Show output values from your root module
+  providers     Show the providers required for this configuration
+  refresh       Update the state to match remote systems
+  show          Show the current state or a saved plan
+  state         Advanced state management
+  taint         Mark a resource instance as not fully functional
+  test          Experimental support for module integration testing
+  untaint       Remove the 'tainted' state from a resource instance
+  version       Show the current Terraform version
+  workspace     Workspace management
+
+Global options (use these before the subcommand, if any):
+  -chdir=DIR    Switch to a different working directory before executing the
+                given subcommand.
+  -help         Show this help output, or the help for a specified subcommand.
+  -version      An alias for the "version" subcommand.
+```
+
+### Terraform Init
+
+- This is the first command that should be run after writing a Terraform Configuration.
+- This setups the Terraform backend by downloading necessary providers and modules.
+
+`terraform init`
+
+### Terraform Plan
+
+- This command generates an execution plan which will display the changes that will be applied to our infrastructure.
+- We can store the changes to a file and can be used as input to `terraform apply`
+
+`terraform plan`
+
+### Terraform Apply
+
+- This command runs the `terraform plan` and applies the changes to the infrastructure.
+- You will be prompted to approve the changes and it can be automated by using 'auto-approve' option.
+
+`terraform apply`
+`terraform apply --auto-approve`
+
+### Terraform Lock Files
+
+- This files locks(stores) the version of providers and modules which are compatible with the current project.
+- This file **should be committed** to your Version Control System (VCS) e.g. github
+
+`.terraform.lock.hcl`
+
+### Terraform State Files
+
+- This file contains the current state of your infrastructure.
+- This file might contain sensitive data
+- This file **should not be committed** to your Version Control System (VCS) e.g. github
+
+`.terraform.tfstate` - Current state
+`.terraform.tfstate.backup` - Previous state
+
+### Terraform Directory
+
+- This directory contains the binaries of the Providers and Modules that is used in the project.
