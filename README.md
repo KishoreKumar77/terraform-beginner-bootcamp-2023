@@ -348,3 +348,7 @@ open /home/gitpod/.terraform.d/credentials.tfrc.json
   }
 }
 ```
+
+#### Automation of Terraform Cloud login
+
+As we had issue in login to Terraform Cloud in Gitpod, we have created a bash script [./bin/generate_tfrc_credentials](./bin/generate_tfrc_credentials)
