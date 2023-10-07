@@ -11,6 +11,16 @@ terraform {
   }
 }
 
+terraform {
+  cloud {
+    organization = "TFBC_KK"
+
+    workspaces {
+      name = "terra-house-1"
+    }
+  }
+}
+
 provider "random" {
   # Configuration options
 }
